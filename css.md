@@ -83,8 +83,13 @@ BFC全称 Block Formatting Context，译为块级格式化上下文。
 ```
 .wrapper{
     display: flex;
+<<<<<<< HEAD
     align-items: center; /*定义body的元素垂直居中*/
     justify-content: center; /*定义body的元素水平居中*/
+=======
+    align-items: center;/*定义body的元素垂直居中*/
+    justify-content: center;/*定义body的元素水平居中*/
+>>>>>>> 97bfd379132ee29408798a7ad31e840f264ab334
 }
 ```
 

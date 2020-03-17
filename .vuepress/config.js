@@ -3,7 +3,7 @@ module.exports = {
     description: "刷题",
     themeConfig: {
         nav: [
-          { text: 'github', link: 'https://google.com' },
+          { text: 'github', link: 'https://github.com/wxw007/learning-note' },
         ],
         sidebar: [
             {

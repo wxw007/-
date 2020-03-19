@@ -83,14 +83,65 @@ BFC全称 Block Formatting Context，译为块级格式化上下文。
 ```
 .wrapper{
     display: flex;
-<<<<<<< HEAD
     align-items: center; /*定义body的元素垂直居中*/
     justify-content: center; /*定义body的元素水平居中*/
-=======
-    align-items: center;/*定义body的元素垂直居中*/
-    justify-content: center;/*定义body的元素水平居中*/
->>>>>>> 97bfd379132ee29408798a7ad31e840f264ab334
 }
 ```
+5. display:table实现
+```
+// css部分
+.parent{
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: table;
+}
+.son{
+    display: table-cell;
+    vertical-align: middle;
+}
 
+// html部分
+
+<div class="parent">
+    <div class="son">nihaosssss</div>
+</div>
+```
+> table 布局只能让行内元素水平垂直居中
+
+6.  relative 水平垂直居中
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现水平垂直居中==相对定位实现</title>
+    <style>
+    html,body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .content{
+        width: 300px;
+        height: 300px;
+        background: orange;
+        margin: 0 auto;/*水平居中*/
+        position: relative;/*设置position*/
+        top: 50%; /*百分比相对于父级尺寸计算！！！！*/
+        /*margin-top: -150px;*/    /*第一种：margin-top*/
+        transform: translateY(-50%);/*第二种：transform：转换*/
+    }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+</body>
+</html>
+```
+### flex布局
+参考: [阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
 

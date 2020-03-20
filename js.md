@@ -1,6 +1,6 @@
 # js基础
 
-### js数据数据类型
+## js数据数据类型
 1. 原始类型 **(6个)**
 - boolean
 - null
@@ -14,7 +14,7 @@
 2. 引用类型
 - object
 
-### 判断数据类型
+## 判断数据类型
 - `typeof` 对于原始类型来说，除了 `null` 都可以显示正确的类型
 - `typeof` 对于对象来说，除了函数都会显示 `object`，所以说 `typeof` 并不能准确判断变量到底是什么类型
 > `typeof` 只能判断原始类型
@@ -28,9 +28,9 @@ Object.prototype.toString.call('') // [object String]
  ```
  `Object.prototype.toString()` 是最推荐的
 
-### this
+## this
 
-#### 普通函数
+### 普通函数
 
 ```
 function foo() {
@@ -51,7 +51,7 @@ const c = new foo()
 - 对于 obj.foo() 来说，我们只需要记住，谁调用了函数，谁就是 this，所以在这个场景下 foo 函数中的 this 就是 obj 对象
 - 对于 new 的方式来说，this 被永远绑定在了 c 上面，不会被任何方式改变 this
 
-#### 箭头函数
+### 箭头函数
 ```
 function a() {
   return () => {
@@ -63,7 +63,7 @@ function a() {
 console.log(a()()())
 ```
 首先箭头函数其实是没有 this 的，箭头函数中的 this 只取决包裹箭头函数的第一个普通函数的 this。在这个例子中，因为包裹箭头函数的第一个普通函数是 a，所以此时的 this 是 window。另外对箭头函数使用 bind 这类函数是无效的。
-
+å
 最后种情况也就是 bind 这些改变上下文的 API 了，对于这些函数来说，this 取决于第一个参数，如果第一个参数为空，那么就是 window。
 
 如果对一个函数进行多次 bind，那么上下文会是什么呢？
@@ -75,7 +75,25 @@ fn.bind().bind(a)() // => ?
 
 不管我们给函数 bind 几次，fn 中的 this 永远由第一次 bind 决定
 
-#### this的优先级
+### this的优先级
 首先，new 的方式优先级最高，接下来是 bind 这些函数，然后是 obj.foo() 这种调用方式，最后是 foo 这种调用方式，同时，箭头函数的 this 一旦被绑定，就不会再被任何方式所改变。
 
 ![this流程图](./images/1.jpg)
+
+## 闭包
+### 什么是闭包？
+闭包就是指有权访问另一个函数作用域中的变量的函数。外部函数调用之后其变量对象本应该被销毁，但闭包的存在使我们仍然可以访问外部函数的变量对象
+```
+例子: 闭包实现一个函数，每次调用返回值加1
+function a(){
+    var n = 1;
+    return function(){
+       return n++
+    }
+}
+var b = a()
+
+b() // 1
+b() // 2
+b() // 3
+```

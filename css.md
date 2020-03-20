@@ -1,6 +1,6 @@
-# CSS 面试题
+# CSS 基础
 
-### 清除浮动的方式有哪些？
+## 清除浮动的方式有哪些？
 
 1. 父级 `div` 设置 height
 2. 结尾加空 `div` 元素设置clear:both
@@ -9,17 +9,17 @@
 5. 父级`div`也浮动，需要定义宽度
 6. 父级`div`定义display:table
 
-### box-sizing常用的属性有哪些？分别有什么作用？
+## box-sizing常用的属性有哪些？分别有什么作用？
 box-sizing: content-box|border-box|inherit;
 
 - content-box: 标准盒模型, 宽度盒高度只应用到元素内容, `padding和border不包含`在尺寸内。
 - border-box: ie盒模型, 也叫怪异盒模型, 宽度和高度包含了`元素内容、padding 和 border`
 
-### 对bfc规范的理解
+## 对bfc规范的理解
 BFC全称 Block Formatting Context，译为块级格式化上下文。
 表现原则: 内部子元素再怎么翻江倒海，都不会影响外部的元素。
 
-#### 触发BFC条件
+### 触发BFC条件
   1. `<html>` 根元素
   2. float 的值不为 none
   3. overflow 的值为 auto、scroll 或 hidden
@@ -27,13 +27,13 @@ BFC全称 Block Formatting Context，译为块级格式化上下文。
   5. position 的值不为 relative 和 static
 > 只要元素符合上面的任意一个条件，就无需使用 clear: both 属性去清除浮动的影响，因此不要见到一个 `<div>` 元素就加个类似 .clearfix 的类名，否则只能暴露薄弱的css基本功 
 
-#### BFC解决哪些问题
+### BFC解决哪些问题
 1. 解决浮动元素令父元素高度塌陷的问题
 2. 解决自适应布局的问题
 3. 外边距垂直方向重合问题
 
 
-### css实现水平垂直居中
+## css实现水平垂直居中
 1. 绝对定位元素的居中实现
 
 ```
@@ -142,6 +142,6 @@ BFC全称 Block Formatting Context，译为块级格式化上下文。
 </body>
 </html>
 ```
-### flex布局
+## flex布局
 参考: [阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
 

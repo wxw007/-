@@ -1,5 +1,5 @@
 # git 使用以及规范
-### git commit 规范
+## git commit 规范
 
 > commit 的类别，只允许使用下面7个标识。
 

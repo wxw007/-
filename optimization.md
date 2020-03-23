@@ -1,15 +1,15 @@
 # 性能优化
 
-### 异步加载script,提高前端性能(defer和async属性的区别)
+## 异步加载script,提高前端性能(defer和async属性的区别)
 > 原文链接：https://blog.csdn.net/qq_19644471/article/details/81949680
-#### 异步加载script的好处
+### 异步加载script的好处
 为了加快首屏响应速度,前端会采用代码切割、按需加载等方式优化性能。异步加载script也是一种前端优化的手段。
 
 就好比如果我的页面其中一个功能需要打开地图,但是地图的js插件包是非常大的,而如果用户不用地图功能的时候,我们当然不能再给它加载js地图包,白白让他多花等待时间岂不是很冤枉!于是我们可以动态插入script,当用户点击了某个按钮的时候,再新建script标签,引入地图js资源。
 
 
 
-#### 异步加载script的方式
+### 异步加载script的方式
 1. 按需加载js
 ```
 getMap.onclick = function(){
@@ -43,3 +43,5 @@ var doc = iframe.contentWindow.document;
 doc.open().write('<body οnlοad="insertJS()">'); 
 doc.close();
 ```
+
+## 首屏优化

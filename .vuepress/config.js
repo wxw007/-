@@ -12,6 +12,8 @@ module.exports = {
             '/css',
             '/js',
             '/vue',
+            '/brower',
+            '/webpack',
             '/git'
         ],
         // sidebar: [

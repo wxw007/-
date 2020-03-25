@@ -11,6 +11,7 @@ module.exports = {
             '/html',
             '/css',
             '/js',
+            '/algorithm',
             '/vue',
             '/brower',
             '/webpack',

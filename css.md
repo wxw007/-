@@ -180,3 +180,9 @@ Flex 布局以后，子元素的float、clear和vertical-align属性将失效。
   + `flex` 是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
   + `align-self` 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
 
+## css 选择器权重
+- 内联样式，如: style=””，权值为`1000`。
+- ID选择器，如：#content，权值为`100`。
+- 类，伪类和属性选择器，如.content，权值为`10`。
+- 类型选择器和伪元素选择器，如div p，权值为`1`。
+- 通配符、子选择器、相邻选择器等的。如*、>、+,权值为`0`。

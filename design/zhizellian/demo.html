@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <iframe id="iframe" src="http://www.baidu.com" frameborder="0" style="width: 500px; height: 500px"></iframe> -->
+    <div id="aa">1111</div>
+    <script>
+        // var aa =document.getElementById("aa");
+
+        // function changeText(){
+        //     aa.innerText = '2222'
+        // }
+        // setTimeout(changeText, 1000)
+
+        // aa.addEventListener('DOMNodeInserted', function(){
+        //     console.log('改变')
+        // })
+    </script>
+
+    <script>
+        //zh-CN
+        // 给第一个iframe绑定点击事件
+        function clickListener1() {
+            var iframe = document.querySelectorAll("iframe")[1];
+            var iframeDocument = iframe.contentWindow.document;
+            var c = iframeDocument.querySelector('table')
+            $(c).on('click', 'a', function () {
+                var t = $(this).text()
+                console.log(t)
+                // 每次点击打印后函数就失效(原因未知), 所以递归调用(间隔500ms以上递归才能起作用，原因未知)
+                setTimeout(init, 600)
+            })
+        }
+
+
+        // 给第二个iframe绑定点击事件
+        function clickListener2() {
+            var iframe = document.querySelectorAll("iframe")[2];
+            var iframeDocument = iframe.contentWindow.document;
+            var c = iframeDocument.querySelector('table')
+            $(c).on('click', 'a', function () {
+                var t = $(this).text()
+                console.log(t)
+                // 每次点击打印后函数就失效(原因未知), 所以递归调用(间隔500ms以上递归才能起作用，原因未知)
+                setTimeout(init, 600)
+            })
+        }
+
+        // 判断iframe是否加载完
+        function iframeOnload(cb) {
+            var N = 4;
+            var t = null;
+            var iframeList = document.querySelectorAll("iframe");
+            if (iframeList.length < N) {
+                t = setTimeout(function () {
+                    iframeOnload(init)
+                }, 500)
+            } else {
+                console.log(cb)
+                clearTimeout(t)
+                cb()
+            }
+        }
+
+        // 初始化
+        function init() {
+            clickListener1();
+            clickListener2();
+        }
+
+        // 执行
+        iframeOnload(init)
+
+        // iframe1 主动触发点击事件
+        function trigger1(val) {
+            var iframe = document.querySelectorAll("iframe")[1];
+            var iframeDocument = iframe.contentWindow.document;
+            var c = iframeDocument.querySelector('table');
+
+            var aList = $(c).find('a');
+            for (var i = 0; i < aList.length; i++) {
+                if (val === aList[i].value) {
+                    aList[i].click()
+                }
+            }
+        }
+
+        // iframe1 主动触发点击事件
+        function trigger2(val) {
+            var iframe = document.querySelectorAll("iframe")[2];
+            var iframeDocument = iframe.contentWindow.document;
+            var c = iframeDocument.querySelector('table');
+
+            var aList = $(c).find('a');
+
+            for (var i = 0; i < aList.length; i++) {
+                if (val === aList[i].value) {
+                    console.log(aList[i])
+                    aList[i].click()
+                }
+            }
+        }
+
+
+
+        function resultChangeHandle() {
+            console.log('result的内容改变了')
+        }
+
+        // 防抖动函数
+        function debounce(func, wait) {
+            var timeout = null
+            return function () {
+                var context = this, args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    func.apply(context, args);
+                }, wait);
+            };
+        };
+
+        //result内容监听
+        function resultListener() {
+            var timer;
+            var result = document.getElementById('result');
+            if (!result) {
+                timer = setTimeout(resultListener, 500)
+            } else {
+                clearTimeout(timer)
+                result.addEventListener('DOMNodeInserted', debounce(resultChangeHandle, 100))
+            }
+        }
+
+        resultListener()
+
+
+
+
+    </script>
+</body>
+
+</html>

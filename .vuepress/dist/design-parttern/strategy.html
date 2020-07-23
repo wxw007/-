@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>策略模式 | 虎皮猫的博客</title>
+    <meta name="description" content="个人博客-wxw">
+    
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.583a6a78.css" as="style"><link rel="preload" href="/blog/assets/js/app.11b93967.js" as="script"><link rel="preload" href="/blog/assets/js/11.8c1c035d.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.da1e6b2a.js"><link rel="prefetch" href="/blog/assets/js/12.963dc0f1.js"><link rel="prefetch" href="/blog/assets/js/13.1ba6081a.js"><link rel="prefetch" href="/blog/assets/js/14.1c602e45.js"><link rel="prefetch" href="/blog/assets/js/15.51a87e71.js"><link rel="prefetch" href="/blog/assets/js/16.601b1840.js"><link rel="prefetch" href="/blog/assets/js/17.f871070b.js"><link rel="prefetch" href="/blog/assets/js/18.fe00c24b.js"><link rel="prefetch" href="/blog/assets/js/19.1dd4a70b.js"><link rel="prefetch" href="/blog/assets/js/2.e27d968a.js"><link rel="prefetch" href="/blog/assets/js/3.7abba3c2.js"><link rel="prefetch" href="/blog/assets/js/4.c143186b.js"><link rel="prefetch" href="/blog/assets/js/5.607b58e6.js"><link rel="prefetch" href="/blog/assets/js/6.d537e562.js"><link rel="prefetch" href="/blog/assets/js/7.97d4aa69.js"><link rel="prefetch" href="/blog/assets/js/8.9a665727.js"><link rel="prefetch" href="/blog/assets/js/9.0145e32e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.583a6a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">虎皮猫的博客</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/wxw007/learning-note" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/wxw007/learning-note" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/html.html" class="sidebar-link">HTML 基础</a></li><li><a href="/blog/css.html" class="sidebar-link">CSS 基础</a></li><li><a href="/blog/js.html" class="sidebar-link">JS基础</a></li><li><a href="/blog/algorithm.html" class="sidebar-link">JS算法</a></li><li><a href="/blog/vue.html" class="sidebar-link">vue</a></li><li><a href="/blog/brower.html" class="sidebar-link">浏览器相关</a></li><li><a href="/blog/webpack.html" class="sidebar-link">webpack 知识</a></li><li><a href="/blog/optimization.html" class="sidebar-link">性能优化</a></li><li><a href="/blog/git.html" class="sidebar-link">git 使用以及规范</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="策略模式"><a href="#策略模式" aria-hidden="true" class="header-anchor">#</a> 策略模式</h1> <h2 id="策略模式是啥"><a href="#策略模式是啥" aria-hidden="true" class="header-anchor">#</a> 策略模式是啥?</h2> <p>先来一个枯燥的定义: 定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</p> <p>我: 啥玩意??? 直接告诉我它能干嘛，什么情况下要用它，用了它能给我带来什么好处就完了！</p> <h2 id="作用-它能干嘛？"><a href="#作用-它能干嘛？" aria-hidden="true" class="header-anchor">#</a> 作用: 它能干嘛？</h2> <p>小朋友，你是否有很多if?</p> <p>笼统的来说，策略模式就是可以让原本一大堆的 <code>if-else</code> 变得更容易维护和扩展。免去我们深入原来的代码进行破坏性的修改；同时如果其他地方需要复用这些逻辑，不需要到处 <code>ctrl+c ctrl+v</code> 这样贴狗皮膏。(开放-封闭原则)</p> <h2 id="使用场景"><a href="#使用场景" aria-hidden="true" class="header-anchor">#</a> 使用场景</h2> <p>如果我们的代码中有很多<code>判断逻辑</code>,就需要考虑是否用策略模式了。</p> <ul><li><s>抄一个</s> 参考一个例子</li></ul> <p>需求: 根据员工的工资基数以及年底绩效情况来发放的。如：绩效为S的年终奖有4倍工资、绩效为A的年终奖有3倍工资，绩效为B的年终奖只能有2倍的工资。这种逻辑我们可以用基本代码实现</p> <div class="language- extra-class"><pre class="language-text"><code>// 很耿直的写一个函数，然后直接传参得出结果，简单粗暴
+
+var calculateBonus = function (performanceLevel, salary) {
+    if (performanceLevel === 'S') {
+        return salary * 4;
+    };
+    if (performanceLevel === 'A') {
+        return salary * 3;
+    };
+    if (performanceLevel === 'B') {
+        return salary * 2;
+    };
+}
+
+//获得绩效为B的员工 假设该员工工资为 10000
+calculateBonus('B', 10000); -&gt; 奖金 20000
+
+//获得绩效为S的员工 假设该员工工资为 10000
+calculateBonus('S', 10000); -&gt; 奖金 40000
+
+</code></pre></div><p>这段代码虽然实现了我们想要的功能，但是很局限，有以下几种缺点：</p> <ul><li>包含了过多的if-else语句，使函数过于庞大。</li> <li>calculateBonus函数缺乏弹性，如果需要新增加不同的绩效等级，需要更改其内部实现，违反了开放-封闭原则。</li> <li>算法复用性差，如果其他地方需要用到这种计算规则，只能重新输出（复制、粘贴）。</li></ul> <p>策略模式就是来专制这种<code>胖逻辑</code>的。</p> <h2 id="怎么用"><a href="#怎么用" aria-hidden="true" class="header-anchor">#</a> 怎么用</h2> <ol><li>编写策略对象</li></ol> <p>将各个奖金的计算方法，集中写到一个对象里</p> <div class="language- extra-class"><pre class="language-text"><code>//策略对象
+var strategies = {
+    //一系列计算逻辑
+    &quot;S&quot; : function ( salary ) {
+        return salary * 4;
+    },
+    &quot;A&quot; : function ( salary ) {
+        return salary * 3;
+    },
+    &quot;B&quot; : function ( salary ) {
+        return salary * 2;
+    }
+};
+</code></pre></div><ol start="2"><li></li></ol></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/blog/assets/js/app.11b93967.js" defer></script><script src="/blog/assets/js/11.8c1c035d.js" defer></script>
+  </body>
+</html>
